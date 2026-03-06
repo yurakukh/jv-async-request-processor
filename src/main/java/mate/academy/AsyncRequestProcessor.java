@@ -24,9 +24,9 @@ public class AsyncRequestProcessor {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            UserData userData = new UserData(userId, "Some details...");
+            UserData userData = new UserData(userId, "Some details for user " + userId);
             cache.put(userId, userData);
             return userData;
-        });
+        }, executor);
     }
 }
